@@ -72,8 +72,8 @@ void Send_addMsg()
 		printf(">");
  		std::cin >> str;
 		printf("\n");
-		send = str;
-		//send = string_To_UTF8(str);
+		//send = str;
+		send = string_To_UTF8(str);
 		if(theCentWs->get_handle())
 		{
 			s32 n = lws_write((lws*)theCentWs->get_handle(), (unsigned char*)send.c_str(),send.length(), LWS_WRITE_TEXT);
