@@ -1,4 +1,5 @@
 #pragma once
+
 #include<stdio.h>
 #include<thread>
 #include<iostream>
@@ -10,16 +11,7 @@
 
 #define FLAG printf("[%s,%d] \n",__FUNCTION__,__LINE__)
 #define DATE_LEN 1024
-
-
 #pragma warning(disable:4996)
-
-
-
-
-
-
-
 
 
 

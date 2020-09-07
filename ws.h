@@ -19,8 +19,6 @@ public:
 	void set_handle(long wsi);
 	long get_handle() { if (m_connectwsi.handle)return m_connectwsi.handle; else return 0; }
 	void clear_handle();
-
-	std::string getSendbuf();
 private:
 	TConnectWsi m_connectwsi;
 };

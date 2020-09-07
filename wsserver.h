@@ -24,7 +24,7 @@ public:
 
 	lws_context* GetListenSocket() {return m_lws;}
 
-
+	void Run();
 
 	bool destroy();
 private:
