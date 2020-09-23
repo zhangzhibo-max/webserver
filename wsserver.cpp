@@ -68,7 +68,7 @@ static int protocol_my_callback(struct lws* wsi, enum lws_callback_reasons reaso
 	case LWS_CALLBACK_ESTABLISHED:       
 	{
 		theCentWs->set_handle((long)wsi);
-		lwsl_notice("Client connect!\n");
+		//lwsl_notice("Client connect!\n");
 	}
 	break;
 	case LWS_CALLBACK_CLOSED:

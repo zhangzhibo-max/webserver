@@ -4,6 +4,7 @@
 
 int main()
 {
+	SetConsoleOutputCP(65001);//set output encoding to UTF8
 	center::InitInstance();
 	center::AllocGlobal();
 	center* pData = getglobal();
@@ -22,6 +23,9 @@ int main()
 	center::releaseInstance();
 	return 0;
 }
+
+
+
 // using namespace std;
 // int main()
 // {
