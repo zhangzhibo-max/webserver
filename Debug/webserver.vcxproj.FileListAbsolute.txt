@@ -1,4 +1,0 @@
-E:\code\webserver\Debug\webserver.exe
-E:\code\webserver\Debug\webserver.pdb
-E:\github\webserver\webserver\Debug\webserver.exe
-E:\github\webserver\webserver\Debug\webserver.pdb

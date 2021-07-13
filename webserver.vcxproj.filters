@@ -30,6 +30,9 @@
     <ClCompile Include="global.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="public.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="center.h">
@@ -45,6 +48,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="common.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="public.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
