@@ -154,10 +154,9 @@ static int protocol_my_callback(struct lws* wsi, enum lws_callback_reasons reaso
 
 void startserver()
 {
-	while(1)
-	{
-		theCentWsServer->Run();
-	}
+
+	theCentWsServer->Run();
+	
 }
 
 wsserver::wsserver()
@@ -252,8 +251,13 @@ void wsserver::Run()
 
 bool wsserver::destroy()
 {
-	lws_context_destroy(m_lws);
+	g_lock.lock();
+
+	if(m_lws!=NULL)
+		lws_context_destroy(m_lws);
+	g_lock.unlock();
 	return true;
+
 }
 
 

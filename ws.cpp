@@ -1,26 +1,10 @@
-
-#include <stdio.h>
 #include <thread>
-#include <iostream>
-#include <string>
-#include <functional>
-#include <algorithm>
-#include <mutex>
-#include <fstream>
-#include <map>
-#include <regex>
-#include <stdlib.h>
-#include <locale>
-#include <codecvt>
-#include <memory>
-
-
 #pragma comment(lib,"wininet.lib")
 #include "ws.h"
 #include "common.h"
 #include "libwebsockets.h"
 #include "public.h"
-
+extern bool g_Exist;
 
 void Send_addMsg()
 {
@@ -30,6 +14,15 @@ void Send_addMsg()
 	{
 		printf(">");
  		std::cin >> str;
+		if (strstr(str.c_str(), "quit") != NULL)
+		{	
+			g_Exist = false;
+			theCent->Release();
+			theCent->FreeGlobal();
+
+			Sleep(2000);
+			exit(0);
+		}
 		printf("\n");
 		//send = str;
 		send->append(str);
@@ -64,6 +57,7 @@ ws::ws()
 		m_connectwsi.SendBuf = new s8[DATE_LEN];
 		memset(m_connectwsi.SendBuf, 0, DATE_LEN);
 	}
+	
 	Sleep(2000);
 	std::thread send_thrad(Send_addMsg);
 	send_thrad.detach();
@@ -72,10 +66,10 @@ ws::ws()
 
 ws::~ws()
 {
-	if (m_connectwsi.SendBuf)
-		delete[] m_connectwsi.SendBuf;
-	if (m_connectwsi.RecvBuf)
-		delete[] m_connectwsi.RecvBuf;
+	m_lock.lock();
+	delete[] m_connectwsi.SendBuf;
+	delete[] m_connectwsi.RecvBuf;
+	m_lock.unlock();
 }
 
 

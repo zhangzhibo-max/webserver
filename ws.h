@@ -21,5 +21,6 @@ public:
 	void clear_handle();
 private:
 	TConnectWsi m_connectwsi;
+	std::mutex m_lock;
 };
 

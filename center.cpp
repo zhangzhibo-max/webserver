@@ -70,9 +70,11 @@ bool center::Init()
 }
 
 bool center::Release()
-{
+{	
+	if (m_pCws)
+		delete m_pCws;
 	if (m_pCwserver)
-		delete m_pCwserver;
+		delete m_pCwserver;	
 	return true;
 }
 
